@@ -1,0 +1,13 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  carrier: one
+  shipping_date: 2022-01-02
+  origin_country: MyString
+  destination_country: MyString
+
+two:
+  carrier: two
+  shipping_date: 2022-01-02
+  origin_country: MyString
+  destination_country: MyString
