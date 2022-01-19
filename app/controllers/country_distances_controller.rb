@@ -5,14 +5,14 @@ class CountryDistancesController < ApplicationController
   # GET /country_distances
   def index
     @country_distances = CountryDistance.where(country_distance_params)
-    render json: @carriers, status: :ok
+    render json: @country_distances, status: :ok
   end
 
   # POST /country_distances
   # TODO
   def create
     @country_distance = CountryDistance.create!(country_distance_params)
-    render json: @carrier, status: :ok
+    render json: @country_distance, status: :ok
   end
 
   # GET /country_distances/:id

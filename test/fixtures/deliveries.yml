@@ -1,0 +1,11 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  package: one
+  expected_delivery: 2022-01-02
+  oversea_delay: 1
+
+two:
+  package: two
+  expected_delivery: 2022-01-02
+  oversea_delay: 1

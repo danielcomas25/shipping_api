@@ -10,30 +10,41 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20_220_102_174_053) do
-  create_table 'carriers', force: :cascade do |t|
-    t.string   'code'
-    t.integer  'delivery_promise'
-    t.boolean  'saturday_deliveries'
-    t.integer  'oversea_delay_threshold'
-    t.datetime 'created_at',              null: false
-    t.datetime 'updated_at',              null: false
+ActiveRecord::Schema.define(version: 20220102194440) do
+
+  create_table "carriers", force: :cascade do |t|
+    t.string   "code"
+    t.integer  "delivery_promise"
+    t.boolean  "saturday_deliveries"
+    t.integer  "oversea_delay_threshold"
+    t.datetime "created_at",              null: false
+    t.datetime "updated_at",              null: false
   end
 
-  create_table 'country_distances', force: :cascade do |t|
-    t.string   'country'
-    t.text     'distance'
-    t.datetime 'created_at', null: false
-    t.datetime 'updated_at', null: false
+  create_table "country_distances", force: :cascade do |t|
+    t.string   "country"
+    t.text     "distance"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
   end
 
-  create_table 'packages', force: :cascade do |t|
-    t.integer  'carrier_id'
-    t.date     'shipping_date'
-    t.string   'origin_country'
-    t.string   'destination_country'
-    t.datetime 'created_at',          null: false
-    t.datetime 'updated_at',          null: false
-    t.index ['carrier_id'], name: 'index_packages_on_carrier_id'
+  create_table "deliveries", force: :cascade do |t|
+    t.integer  "package_id"
+    t.date     "expected_delivery"
+    t.integer  "oversea_delay"
+    t.datetime "created_at",        null: false
+    t.datetime "updated_at",        null: false
+    t.index ["package_id"], name: "index_deliveries_on_package_id"
   end
+
+  create_table "packages", force: :cascade do |t|
+    t.integer  "carrier_id"
+    t.date     "shipping_date"
+    t.string   "origin_country"
+    t.string   "destination_country"
+    t.datetime "created_at",          null: false
+    t.datetime "updated_at",          null: false
+    t.index ["carrier_id"], name: "index_packages_on_carrier_id"
+  end
+
 end
